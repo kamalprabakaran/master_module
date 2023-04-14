@@ -139,9 +139,14 @@ exports.findOne = (req, res) => {
 
   // Fetch all booked hall list
   exports.booked = (req, res) => {
-    Hall.find({booked:true})
+    const key=req.params.key;
+    const value=req.params.value;
+    console.log(key);
+    console.log(value);
+    Hall.find({$key: value})
+    
       .then(data => {
-        
+       
         if (!data)
           res.status(404).send({ message: "Not found Hall with id " + id });
         else res.send(data);

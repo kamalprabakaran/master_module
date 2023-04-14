@@ -10,6 +10,8 @@ db.tutorials = require("./tutorial.model.js")(mongoose);
 db.hall=require("./hall-model.js")(mongoose);
 db.bookings=require("./booking-model.js")(mongoose);
 db.users=require("./user-model.js")(mongoose);
+db.faculty=require("./faculty-model")(mongoose);
+db.students=require("./students-model")(mongoose);
 db.counters=require("./")
 module.exports = db;
 

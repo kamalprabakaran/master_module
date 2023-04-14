@@ -5,6 +5,8 @@ module.exports = app => {
   const halls=require("../controllers/hall-controller.js")
   const bookings=require("../controllers/booking-controller");
   const users=require("../controllers/user-controller");
+  const faculty=require("../controllers/faculty-controller");
+  const students=require("../controllers/students-controller")
 
   var router = require("express").Router();
 
@@ -52,7 +54,34 @@ module.exports = app => {
 
   router.delete("/halls/deletemany",halls.deletemany);
 
-  router.get("/halls/filter/booked/", halls.booked);
+  router.get("/halls/filter/lists?:key=:value", halls.booked);
+
+//Students routers
+router.get("/students/list",students.findAll);
+  
+router.get("/students/list/:id",students.findOne);
+
+router.post("/students/create",students.add);
+
+router.put("/students/update/:id", students.update);
+
+router.delete("/students/delete/:id",students.deleteone);
+
+router.delete("/students/deletemany",students.deletemany);
+ 
+
+//Faculty routers
+router.get("/faculty/list",faculty.findAll);
+  
+router.get("/faculty/list/:id",faculty.findOne);
+
+router.post("/faculty/create",faculty.add);
+
+router.put("/faculty/update/:id", faculty.update);
+
+router.delete("/faculty/delete/:id",faculty.deleteone);
+
+router.delete("/faculty/deletemany",faculty.deletemany);
 
 
 
