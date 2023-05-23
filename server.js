@@ -31,7 +31,7 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "Master Module is Connected" });
 });
 
 require("./app/routes/routes")(app);
